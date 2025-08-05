@@ -1,5 +1,6 @@
 import React from 'react'
-//import { motion } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +9,11 @@ const Header = () => {
   const user = {fullName: "Karim", role: "employer"};
   const navigate = useNavigate();
 
-  return <header>
+  return <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0}}
+      transition={{ duration: 0.6 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
     <div className="container mx-auto px-4">
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
@@ -22,7 +27,7 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <a
             onClick={() => navigate ("/find-jobs")}
-            className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+            className="text-gray-600 hover:text-gray-900 transition-colors font-medium cursor-pointer"
           >
             Find Jobs
           </a>
@@ -30,11 +35,11 @@ const Header = () => {
             onClick={() => {
               navigate(
                 isAuthenticated && user?.role === "employer"
-                ? "/employer-dashbobard"
+                ? "/employer-dashboard"
                 : "/login"
               )
             }}
-            className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+            className="text-gray-600 hover:text-gray-900 transition-colors font-medium cursor-pointer"
           >
             For Employers
           </a>
@@ -66,7 +71,7 @@ const Header = () => {
               </a>
               <a 
               href="/signup"
-              className="bg-gradient-to-r from-blue-600 to-pruple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-blue-700 to-purple-700 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-sm hover:shadow-md"
               >
                 Signup
               </a>
@@ -75,7 +80,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  </header>
+  </motion.header>
 }
 
 export default Header

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Search, ArrowRight, Users, Building2, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
