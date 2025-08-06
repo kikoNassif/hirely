@@ -18,10 +18,12 @@ const Header = () => {
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-            <Briefcase className="w-5 h-5 text-white" />
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+            <img src="../../public/hirely.png" 
+            alt="logo" 
+            className="w-full h-full object-contain mix-blend-multiply opacity-80"/>
           </div>
-          <span className="Text-xl font-bold text-gray-900">hirely</span>
+          <span className="text-xl font-bold text-gray-900">Hirely</span>
         </div>
         {/* Navigation Links - Hidden on mobile */}
         <nav className="hidden md:flex items-center space-x-8">
