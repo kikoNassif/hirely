@@ -5,13 +5,13 @@ const Footer = () => {
     <footer className="relative bg-gray-50 text-gray-900 overflow-hidden">
       <div className="relative z-10 px-6 py-16">
         <div className="max-w-6xl mx-auto">
-          {/* Mian Footer Content */}
+          {/* Main Footer Content */}
           <div className="text-center space-y-8">
             {/* Logo/Brand */}
             <div className="space-y-4">
               <div className="flex items-center justify-center space-x-2 mb-0">
                 <img 
-                src="../../public/hirely-logo.png" alt="hirely-logo"
+                src="/hirely-logo.png" alt="hirely-logo"
                 className="w-30" 
                 />
               </div>

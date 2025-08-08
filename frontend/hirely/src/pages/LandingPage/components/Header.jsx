@@ -19,7 +19,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-            <img src="../../public/hirely.png" 
+            <img src="/hirely.png" 
             alt="logo" 
             className="w-full h-full object-contain mix-blend-multiply opacity-80"/>
           </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import {
   Mail,
@@ -9,6 +10,7 @@ import {
   AlertCircle,
   CheckCircle,
 } from 'lucide-react'
+import { validateEmail } from '../../utils/helper.js';
 
 const LogIn = () => {
 
@@ -24,14 +26,6 @@ const LogIn = () => {
     showPassword: false,
     success: false
   });
-
-  // Validation functions
-  const validateEmail = (email) => {
-    if (!email.trim()) return 'Email is required';
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return 'Please enter a valid email address';
-    return '';
-  };
 
   const validatePassword = (password) => {
     if (!password) return 'Password is required';
@@ -85,7 +79,7 @@ const LogIn = () => {
         ...prev,
         loading: false,
         errors: {
-          submit: error.ersponse?.data?.message || 'Login failed. Please check your credentials.'
+          submit: error.response?.data?.message || 'Login failed. Please check your credentials.'
         }
       }))
     }
@@ -161,7 +155,7 @@ const LogIn = () => {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className={`w-full pl-10 pr-12 py-3 rounded-lg border ${formState.errors.password ? `border-red-500` : 'border-gray-300'} focus-ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
+              className={`w-full pl-10 pr-12 py-3 rounded-lg border ${formState.errors.password ? `border-red-500` : 'border-gray-300'} focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
               placeholder="Enter your password"
               />
               <button
