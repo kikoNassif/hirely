@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import axiosInstance from '../../utils/axiosInstance.js';
+import { API_PATHS } from '../../utils/apiPaths.js';
+import { useAuth } from '../../context/AuthContext';
+
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import {
@@ -13,7 +17,7 @@ import {
 import { validateEmail } from '../../utils/helper.js';
 
 const LogIn = () => {
-
+  const {login, user} = useAuth()
   const [formData,setFormData] = useState({
     email: '',
     password: '',
@@ -69,10 +73,44 @@ const LogIn = () => {
 
     if (!validateForm()) return;
 
-    setFormState(prev => ({ ...prev, loading: true}))
+    setFormState(prev => ({ ...prev, loading: true}));
 
     try {
       // Login API Integration
+      const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
+        email: formData.email,
+        password: formData.password,
+        rememberMe: formData.rememberMe
+      });
+
+      setFormState(prev => ({
+        ...prev,
+        loading: false,
+        success: true,
+        errors: {}
+      }));
+
+      const { token, role } = response.data;
+
+      if (token) {
+        login(response.data, token);
+
+        // Redirect based on role
+        setTimeout(() => {
+          window.location.href =
+            role === "employer"
+              ? "/employer-dashboard"
+              : "/find-jobs";
+        }, 2000);
+      }
+
+      // Redirect based on user role
+      setTimeout(() => {
+        const redirectPath = user.role === 'employer'
+          ? '/employer-dashboard'
+          : '/find-jobs';
+        window.location.href = redirectPath;
+      }, 1500);
 
     } catch (error) {
       setFormState(prev => ({
