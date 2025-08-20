@@ -17,7 +17,8 @@ import {
 import { validateEmail } from '../../utils/helper.js';
 
 const LogIn = () => {
-  const {login, user} = useAuth()
+  const { login, user } = useAuth();
+
   const [formData,setFormData] = useState({
     email: '',
     password: '',

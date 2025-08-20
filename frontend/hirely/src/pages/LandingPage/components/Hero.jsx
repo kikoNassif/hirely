@@ -2,12 +2,12 @@
 import { motion } from 'framer-motion';
 import { Search, ArrowRight, Users, Building2, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../../context/AuthContext"
 
 const Hero = () => {
-  const isAuthenticated = true
-  const user = {fullName: "Karim", role: "employer"}
+  const { user, isAuthenticated } = useAuth();
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const stats = [
     { icon: Users, label: 'Active Users', value: '2.4M+' },
@@ -82,7 +82,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y:0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cpls-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
             {stats.map((stat,index) => (
               <motion.div
