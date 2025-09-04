@@ -119,7 +119,7 @@ const JobPostingForm = () => {
   const validateForm = (formData) => {
     const errors ={};
 
-    if (!formData.jobTitle.trim()) {
+    if (!formData.jobTitle?.trim()) {
       errors.jobTitle = "Job title is required";
     }
 
@@ -131,11 +131,11 @@ const JobPostingForm = () => {
       errors.jobType = "Please select a job type";
     }
 
-    if (!formData.description.trim()) {
+    if (!formData.description?.trim()) {
       errors.description = "Job description is required";
     }
 
-    if (!formData.requirements.trim()) {
+    if (!formData.requirements?.trim()) {
       errors.requirements = "Job requirements is required";
     }
 
@@ -152,6 +152,43 @@ const JobPostingForm = () => {
     const validationErrors = validateForm(formData);
     return Object.keys(validationErrors).length === 0;
   };
+
+  useEffect(() => {
+
+    const fetchJobDetails = async () => {
+      if (jobId) {
+        try {
+          const response = await axiosInstance.get(
+            API_PATHS.JOBS.GET_JOB_BY_ID(jobId)
+          );
+          const jobData = response.data;
+          if (jobData) {
+            setFormData({
+              jobTitle: jobData.title,
+              location: jobData.location,
+              category: jobData.category, 
+              jobType: jobData.type,
+              description: jobData.description,
+              requirements: jobData.requirements,
+              salaryMin: jobData.salaryMin,
+              salaryMax: jobData.salaryMax,
+            })
+          }
+        } catch (error) {
+          console.log("Error fetching nob details");
+          if (error.response) {
+            console.log("API Error:", error.response.data.message);
+          }
+        }
+      }
+    };
+
+    fetchJobDetails();
+
+    return () => {
+
+    }
+  }, [])
 
   if (isPreview) {
     return (
