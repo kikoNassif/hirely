@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Bookmark, Building, Building2, Calendar, MapPin } from "lucide-react";
 import moment from "moment";
 import { useAuth } from "../../context/AuthContext";
