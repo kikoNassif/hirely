@@ -165,7 +165,7 @@ const JobSeekerDashboard = () => {
     </div>
   };
 
-  const toggleSaveJob = async (JobDetails, isSaved) => {
+  const toggleSaveJob = async (jobId, isSaved) => {
 
     try {
       if (isSaved) {
