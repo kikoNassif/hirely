@@ -85,7 +85,7 @@ const FilterContent = ({
                 handleFilterChange("category", e.target.checked ? type.value : "")
               }
             />
-            <span className="ml-3 text-gray-00 font-medium">{type.value}</span>
+            <span className="ml-3 text-gray-700 font-medium">{type.value}</span>
           </label>
         ))}
       </div>

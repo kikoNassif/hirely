@@ -37,7 +37,7 @@ const SalaryRangeSlider = ({ filters, handleFilterChange }) => {
             placeholder="No limit"
             min="0"
             step="1000"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focs:ring-blue-200 focus:ring-opacity-50"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
             value={maxSalary || ""}
             onChange={({ target }) => setMaxSalary(target.value)}
             onBlur={() => 
@@ -51,7 +51,7 @@ const SalaryRangeSlider = ({ filters, handleFilterChange }) => {
       </div>
 
       {/* Display current range */}
-      {(minSalary || minSalary) ? (
+      {(minSalary || maxSalary) ? (
         <div className="text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded">
           Range: {minSalary ? `$${minSalary.toLocaleString()}` : "$0"} -{" "}
           {maxSalary ? `$${maxSalary.toLocaleString()}` : "No Limit"}
