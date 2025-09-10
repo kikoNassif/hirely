@@ -24,7 +24,7 @@ export const API_PATHS = {
 
     SAVE_JOB: (id) => `/api/save-jobs/${id}`,
     UNSAVE_JOB: (id) => `/api/save-jobs/${id}`,
-    GET_SAVED_JOBS: '/api/jobs/my',
+    GET_SAVED_JOBS: '/api/save-jobs/my',
   },
 
   APPLICATIONS: {
