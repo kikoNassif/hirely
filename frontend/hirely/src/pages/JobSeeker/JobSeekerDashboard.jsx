@@ -133,7 +133,7 @@ const JobSeekerDashboard = () => {
     });
   };
 
-  const MobileFilterOverlay = () => {
+  const MobileFilterOverlay = () => (
     <div
       className={`fixed inset-0 z-50 lg:hidden ${
         showMobileFilters ? "" : "hidden"
@@ -164,7 +164,7 @@ const JobSeekerDashboard = () => {
         </div>
       </div>
     </div>
-  };
+  );
 
   const toggleSaveJob = async (jobId, isSaved) => {
 
