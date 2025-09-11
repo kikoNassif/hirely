@@ -31,7 +31,7 @@ const UserProfile = () => {
     }));
   };
 
-  const handleImageUpload = async (File, type) => {
+  const handleImageUpload = async (file, type) => {
     setUploading((prev) => ({ ...prev, [type]: true }));
 
     try {
