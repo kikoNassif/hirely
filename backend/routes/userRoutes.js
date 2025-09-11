@@ -10,7 +10,7 @@ const router = express.Router();
 
 //Protected routes
 router.put("/profile", protect, updateProfile);
-router.post("/resume", protect, deleteResume);
+router.delete("/resume", protect, deleteResume);
 
 // Public route
 router.get("/:id", getPublicProfile);

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { Search, Filter, Grid, List, X } from "lucide-react";
 import LoadingSpinner from "../../components/LoadingSpinner";
