@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8000";
+export const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export const API_PATHS = {
   AUTH: {
@@ -30,7 +30,7 @@ export const API_PATHS = {
   APPLICATIONS: {
     APPLY_TO_JOB: (id) => `/api/applications/${id}`,
     GET_ALL_APPLICATIONS: (id) => `/api/applications/job/${id}`,
-    UPDATE_STATUS: (id) => `api/applications/${id}/status`,
+    UPDATE_STATUS: (id) => `/api/applications/${id}/status`,
   },
 
   IMAGE: {
